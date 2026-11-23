@@ -25,4 +25,7 @@ func main() {
 	fmt.Print(word + " ")
 	fmt.Print(mistakes)
 	printMask(mask)
+
+	char := getCharFromUser()
+	fmt.Println(string(char))
 }
