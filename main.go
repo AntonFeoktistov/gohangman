@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 )
 
 func main() {
@@ -12,4 +13,10 @@ func main() {
 	}
 	word := getRandomWord(dictionary)
 	fmt.Println(word)
+
+	startGame := printStartMenu()
+	if !startGame {
+		os.Exit(0)
+	}
+
 }
