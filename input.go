@@ -23,7 +23,7 @@ func getCharFromUser(set []rune) (rune, []rune) {
 		if _, err := fmt.Scanln(&input); err != nil {
 			fmt.Println("Ошибка ввода:", err)
 		}
-		isCharValid := validateCharInput(input, set)
+		isCharValid := validateCharInput(input)
 		if !isCharValid {
 			fmt.Println("Некорректный ввод. Попробуйте снова")
 			continue
@@ -39,7 +39,7 @@ func getCharFromUser(set []rune) (rune, []rune) {
 
 }
 
-func validateCharInput(input string, set []rune) bool {
+func validateCharInput(input string) bool {
 	runes := []rune(input)
 	if len(runes) != 1 {
 		return false

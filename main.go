@@ -26,11 +26,10 @@ func main() {
 		guessedChars := make([]rune, 0)
 
 		fmt.Println("Слово загадано. Букв:", len([]rune(word)))
-		fmt.Println(word)
 		for !isGameFinished(word, mask, mistakes) {
 			printMask(mask)
 			fmt.Printf("Ошибок: %d/%d\n", maxMistakes-mistakes, maxMistakes)
-
+			printHangman(mistakes)
 			char, newGuessed := getCharFromUser(guessedChars)
 			guessedChars = newGuessed
 
