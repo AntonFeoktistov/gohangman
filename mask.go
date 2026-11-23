@@ -22,3 +22,17 @@ func assertMask(word string, mask []rune) bool {
 func printMask(mask []rune) {
 	fmt.Println(" " + string(mask))
 }
+
+func openThisChar(char rune, word string, mask []rune) (bool, []rune) {
+	wordMask := []rune(word)
+	isCharInWord := slices.Contains(wordMask, char)
+	if !isCharInWord {
+		return false, mask
+	}
+	for i := range mask {
+		if char == wordMask[i] {
+			mask[i] = wordMask[i]
+		}
+	}
+	return true, mask
+}
