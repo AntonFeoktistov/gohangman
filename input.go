@@ -9,5 +9,5 @@ func printStartMenu() bool {
 		fmt.Println("Ошибка ввода:", err)
 		return false
 	}
-	return input == "в"
+	return !(input == "в")
 }

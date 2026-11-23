@@ -6,17 +6,23 @@ import (
 	"os"
 )
 
+const maxMistakes int = 5
+
 func main() {
 	dictionary, err := readWordsFromFile("words.txt")
 	if err != nil {
 		log.Fatalf("не удалось прочитать файл: %v", err)
 	}
-	word := getRandomWord(dictionary)
-	fmt.Println(word)
 
 	startGame := printStartMenu()
 	if !startGame {
 		os.Exit(0)
 	}
 
+	mistakes := maxMistakes
+	word := getRandomWord(dictionary)
+	mask := makeMask(word)
+	fmt.Print(word + " ")
+	fmt.Print(mistakes)
+	printMask(mask)
 }
